@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameBoardMohjong : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class GameBoardMohjong : MonoBehaviour
         {-1, -1}
     };
 
+    [Header("UI")]
+    public Text ScoreText;
+    public Text RecordText;
+    public int Score = 0;
+    public int Record = 0;
+
     [Space(10)]
     [SerializeField]
     private TileMohjong tilePref;
@@ -32,6 +39,8 @@ public class GameBoardMohjong : MonoBehaviour
     private void Update()
     {   
         TryDestroy();
+        UIManager();
+        UpdateRecord();
     }
 
     public void GenerateGameBoard()
@@ -106,5 +115,24 @@ public class GameBoardMohjong : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AddPoints(int points)
+    {
+        Score += points;
+    }
+
+    private void UpdateRecord()
+    {
+        if (Score > Record)
+        {
+            Record = Score  ;
+        }
+    }
+
+    private void UIManager()
+    {
+        ScoreText.text = Score.ToString();
+        RecordText.text = Record.ToString();
     }
 }

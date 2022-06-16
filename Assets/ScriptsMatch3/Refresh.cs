@@ -12,6 +12,6 @@ public class Refresh : MonoBehaviour
 
     private void RefreshBoard()
     {   
-        //Board.GetComponent<GameBoard>().GenerateOrRefreshGameBoard();
+        Board.GetComponent<GameBoard>().GenerateGameBoard();
     }
 }

@@ -111,5 +111,6 @@ public class TileMohjong : MonoBehaviour
     {
         SetImage(5);
         CanSelect = false;
+        Board.GetComponent<GameBoardMohjong>().AddPoints(1);
     }
 }

@@ -95,6 +95,7 @@ public class Tile : MonoBehaviour
     public void DestroyObject()
     {
         SetValue(X, Y, 4, false);
+        Board.GetComponent<GameBoard>().AddPoints(1);
     }
 }
 
